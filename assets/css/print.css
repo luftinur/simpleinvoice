@@ -1,0 +1,140 @@
+/* 
+    CSS Style Simple Invoice 
+    For Print Page From Browser
+    Version 1.0
+*/
+
+/* General Style */
+body{
+    font-family: 'Lato', sans-serif;
+    background-color:#FFFFFF;
+    font-size:16px;
+    color:#313131;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color:#FFFFFF;
+    /* text-transform: uppercase; */
+}
+nav.navbar, #addItem{
+    display:none;
+}
+
+/* INVOICES */
+.inv-clientname > span,
+#invMeta span.meta-title, #invPayment > h5{
+    color:#9b9b9b;
+}
+
+.inv-clientname > h4 {
+    color:#2299cd;
+}
+
+
+#invWrapper.container{
+    overflow: hidden;
+    max-width:1000px;
+    background-color:#FFFFFF;
+    min-height:680px;
+    border:1px solid #c0c0c0;
+    padding:65px;
+}
+#logoWrapper{
+    position:relative;
+}
+#logoWrapper{
+    max-width:180px;
+    display:block;
+    width:100%;
+    overflow: hidden;
+}
+#logoWrapper img{
+    display:block;
+    width:100%;
+}
+#logoWrapper #uploadLogo{
+    position:absolute;
+    width:100%;
+    height:100%;
+    cursor: pointer;
+    top:0;
+    left:0;
+    z-index:5;
+    opacity: 0;
+}
+#invHeaderInfo{
+    padding:5px;
+    vertical-align: middle;
+}
+ol.list-info{
+    font-size:14px;
+    margin-bottom:0;
+    color:#2299cd;
+}
+ul.list-info{
+    list-style:none;
+    font-size:14px;
+    margin-bottom:0;
+    color:#727272;
+    padding-left:0;
+}
+ul.list-info > li > *{
+    display: inline-block;
+    vertical-align: middle;
+    padding:2.5px 0;
+}
+ul.list-info > li > b{
+    width:65px;
+}
+
+
+.title{
+    font-weight:600;
+    position:relative;
+    color:#2299cd;
+    overflow: hidden;
+}
+
+.title::after{
+    content:"";
+    height:10px;
+    margin-left:15px;
+    width:100%;
+    background-color:#9b9b9b;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+#invTerms .title:after{
+    height:5px;
+
+}
+#invMeta .col > div{
+    margin-top:15px;
+    border-left:3px solid #2299cd;
+    padding-left:15px;
+}
+#invMeta .col > div > span{
+    display:block;
+}
+td.totalPrice{
+    text-align:right;
+    position:relative;
+}
+td.totalPrice .deleteItem{
+    position:absolute;
+    right:-35px;
+    top:15%;
+    background-color:transparent;
+}
+td.totalPrice .deleteItem:focus{
+    border:transparent;
+    box-shadow:none;
+}
+#totalInvoice td, #totalInvoice th{
+    text-align:right !important;
+}
+
+.editable.active{
+    background-color:#ebebeb;
+    color:#2299cd;
+}

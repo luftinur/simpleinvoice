@@ -1,0 +1,241 @@
+<!<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aplikasi Invoice Sederhana dengan HTML5 Jquery- Koding Space</title>
+        <meta name="description" content="Aplikasi Invoice sederhana menggunakan HTML5 dan jQuery dengan hasil PDF">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Load Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet"> 
+
+         <!-- Load Font Awesome -->
+         <link rel="stylesheet" href="vendor/fa/css/font-awesome.min.css" media="screen">
+
+         <!-- Load Boostrap Framework -->
+        <link rel="stylesheet" href="vendor/bs/css/bootstrap.min.css" media="all">
+
+         <!-- Load CSS STYLES  -->
+        <link rel="stylesheet" href="assets/css/styles.css" media="screen">
+
+         <!-- Load Print Page Only -->
+        <link rel="stylesheet" href="assets/css/print.css" media="print">
+    </head>
+    <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+         <div class="container">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <a class="navbar-brand" href="javascript:;">Simple Invoice</a>
+                <ul class="navbar-nav  ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="btnEdit" href="javascript:;"><i class="fa fa-pencil"></i> Edit</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- End Navigation -->
+
+  
+    <div id="invWrapper" class="container mt-4 mb-4">
+        
+        
+        <div id="invHeader" class=" pb-4">
+            
+            <div class="row">
+                <div class="col-md-7">
+
+                    <div id="logoWrapper">
+                        <img src="assets/images/logo-default.png" id="invLogo" />
+                        <input id="uploadLogo" type="file" value="" />
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    <div id="invHeaderInfo">
+                       <ul class="list-info">
+                           <li> <b>Phone.</b> <span class="editable">+6221 222 222</span> </li>
+                           <li> <b>Email.</b> <span class="editable">company@mail.com</span> </li>
+                           <li> <b>Address.</b> <span class="editable">Jl. Company Street No. 77. Indonesia</span> </li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- #invHeader -->
+
+        <div id="invInformation" class="mt-4 pt-4">
+            
+            <div class="row">
+                <div class="col-md-5 ">
+                    <div class="inv-clientname">
+                        <span>Invoice To</span>
+                        <h4  class="editable">Client Name</h4>
+                    </div>
+                    <div class="mt-4">
+                        <ul class="list-info">
+                           <li> <b>Phone.</b> <span  class="editable">+6221 222 222</span> </li>
+                           <li> <b>Email.</b> <span class="editable">company@mail.com</span> </li>
+                           <li> <b>Address.</b> <span class="editable">Jl. Company Street No. 77. Indonesia</span> </li>
+                       </ul>
+                    </div>
+                </div>
+                <div class="col-md-7">
+
+                    <h2 class="title editable">INVOICE</h2>
+                    <div id="invMeta" class="mt-4 pt-4">
+                        <div class="row">
+                            <div class="col">
+                                <div>
+                                    <span class="meta-title">Invoice No.</span>
+                                    <span class="meta-text editable">ABC-123-456</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <span class="meta-title">Invoice Date</span>
+                                    <span class="meta-text editable">dd-mm-yyyy</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <span class="meta-title">Due Date</span>
+                                    <span class="meta-text editable">dd-mm-yyyy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- #invInformation -->
+
+        <div id="invTable" class="mt-4 pt-4">
+            <div class="mb-3 text-right">
+                <button id="addItem" class="btn btn-primary btn-sm" disabled>Add Item <i class="fa fa-plus"></i> </button>
+            </div>
+
+            <table id="tableInvoice" class="table table-striped table-bordered mb-0">
+                <thead class="thead-dark  text-center">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="invoice-item">
+                        <th scope="row" class="editable">1</th>
+                        <td width="60%" class="editable">Item Description</td>
+                        <td class="qty editable">1</td>
+                        <td class="unitPrice">
+                            <span class="editable">100,000</span>
+                        </td>
+                        <td class="totalPrice">                            
+                            <span class="editable">100,000</span>
+                            <!-- <button class="btn deleteItem btn-default text-danger"><i class="fa fa-minus"></i></button> -->
+                        </td>
+                    </tr>            
+                </tbody>
+            </table>       
+
+        </div><!-- #invTable -->
+
+        <div id="invFooter">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="invPayment" class="mt-4">
+                        <h5>Payment Method</h5>
+                        <ol class="list-info">
+                           <li> <b class="editable">Jon Kasdro</b> <span class="editable">( Central Bank 123456789 )</span> </li>
+                           <li> <b class="editable">Jon Kasdro</b> <span class="editable">( Central Bank 123456789 )</span> </li>
+                           <li> <b class="editable">jonkasdro@mail.com</b> <span class="editable">( Paypal )</span> </li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+
+                    <table id="totalInvoice" class="table table-dark mb-0">
+                       
+                        <tbody>
+                            <tr class="total-item">
+                                <th scope="col">Subtotal</th>
+                                <td scope="col">
+                                    <span id="subtotal" class="text-right editable">
+                                        200,000
+                                    </span>
+                                </td>                             
+                            </tr>     
+                            <tr class="total-item">
+                                <th scope="col text-right">Discount</th>
+                                <td scope="col">
+                                    <span id="disc" class="text-right editable">0</span><span>%</span>
+                                </td>                             
+                            </tr>     
+                            <tr class="total-item">
+                                <th scope="col text-right">Total</th>
+                                <td scope="col">
+                                    <span id="total" class="text-right editable">200,000</span>
+                                </td>                             
+                            </tr>                    
+                        </tbody>
+                    </table>    
+                    <div class="pt-5  text-center">
+
+                        <span class="signature editable">signature</span>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- #invFooter -->
+
+        <div id="invTerms" class="mt-5">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <h5 class="title">TERMS & CONDITION</h5>
+                    <div>
+                        <p class="editable">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Quis ipsum suspendisse ultrices gravida. 
+                            Risus commodo viverra maecenas accumsan lacus vel facilisis. 
+                        </p>
+                    </div>
+            
+                    <div class="mt-5">
+                        <h6 class="text-muted text-center">THANK YOU FOR YOUR BUSINESS</h6>
+                    </div>
+                </div>
+
+            </div>
+
+        </div><!-- #invTerms -->
+        
+    </div><!-- #invWrapper -->
+
+
+   
+    <script src="vendor/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    </body>
+</html>
